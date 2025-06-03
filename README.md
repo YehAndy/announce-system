@@ -7,3 +7,6 @@
 
 ## Docker執行
 docker-compose up --build
+
+## 瀏覽器執行
+localhost:5173
