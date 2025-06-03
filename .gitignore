@@ -17,4 +17,4 @@ Thumbs.db
 *.iml
 
 # Uploads
-backend/uploads/
+backend/uploads/files
