@@ -5,11 +5,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
     ports:
       - "8080:8080"
-    volumes:
-      - ./backend/uploads:/app/uploads
     networks:
       - appnet
     depends_on:
@@ -20,21 +17,16 @@ services:
     build:
       context: ./frontend-vue
       dockerfile: Dockerfile
-    container_name: frontend
     ports:
       - "5173:5173"
     depends_on:
       - backend
     networks:
       - appnet
-    volumes:
-      - ./frontend-vue:/app
-      - /app/node_modules   # 避免覆蓋容器內 node_modules
     command: npm run dev
 
   mysql:
     image: mysql:8.3
-    container_name: my-mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
